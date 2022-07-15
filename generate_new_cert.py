@@ -17,7 +17,7 @@ def userVPN(local_to_remote, host, vpnUserName, vpnContainerName):
         "docker run -v /home/vpn/opt/vpn-data:/etc/openvpn --rm " + vpnContainerName + " ovpn_getclient " + vpnUserName + " > /home/vitaly/" + vpnUserName + ".ovpn",
     ]
     for command in commandList:
-        ssh = subprocess.Popen(["ssh", "-o", "StrictHostKeyChecking=no", "-i", local_to_remote, host, "-p", "22193", command],
+        ssh = subprocess.Popen(["ssh", "-o", "StrictHostKeyChecking=no", "-i", local_to_remote, host, "-p", "port", command],
                             shell=False,
                             stdout=subprocess.PIPE,
                             stderr=subprocess.PIPE)
